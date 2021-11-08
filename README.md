@@ -1,3 +1,6 @@
+# tienda_basualdo
+ This repository shows my resolution of the React project in coderhouse.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

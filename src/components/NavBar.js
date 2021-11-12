@@ -1,11 +1,13 @@
 
+import logoTienda from '../logo3.png'
+
 function Navbar() {
   return (
     <div className="NavBar">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Tienda</a>
+    <a class="navbar-brand" href="#"> <img src = {logoTienda} alt ="logo" style={{"width": "100px", "height": "100px"}}/>  </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,14 +24,16 @@ function Navbar() {
           <a class="nav-link ">Promociones</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/> 
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+     
+        
+        <button class="btn btn-outline-success" type="submit">Log-in</button>
+     
     </div>
   </div>
 </nav>
  
+ 
+
     </div>
   );
 }

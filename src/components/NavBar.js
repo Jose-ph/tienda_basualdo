@@ -1,5 +1,6 @@
 
 import logoTienda from '../logo3.png'
+import Cartwidget from './Cartwidget';
 
 function Navbar() {
   return (
@@ -24,14 +25,21 @@ function Navbar() {
           <a className="nav-link ">Promociones</a>
         </li>
       </ul>
-     
+
+      
+      <Cartwidget/>
+        
         
         <button className="btn btn-outline-success" type="submit">Log-in</button>
      
+   
     </div>
   </div>
 </nav>
- 
+
+    <h3>Del campe</h3>
+
+    
  
 
     </div>

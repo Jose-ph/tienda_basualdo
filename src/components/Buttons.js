@@ -4,9 +4,9 @@ import React from 'react'
 function Buttons() {
     return (
         <div>
-          
-          <button> Sumar</button>  
-          <button> Restar </button>
+
+          <button className = "bg-success" > Sumar</button>  
+          <button className = "bg-primary" > Restar </button>
 
         </div>
     )

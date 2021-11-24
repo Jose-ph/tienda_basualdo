@@ -1,12 +1,22 @@
 import React from 'react'
 import Item from './Item'
 
-function ItemList() {
+function ItemList({post}) {
+
+   console.log({post})
+  
+
+
+
+
     return (
         <div>
-            <h3>Hola soy el ITEMLIST</h3>
+            {post.map(postElement => {
 
-            <Item/>
+                return  <Item post = {postElement}    />
+            } )}
+
+           
         </div>
     )
 }

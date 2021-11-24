@@ -1,9 +1,12 @@
 import React from 'react'
 
-function Item() {
+function Item({post}) {
     return (
         <div>
-        <h4>Hola soy el componente Item</h4>
+            
+        <h2> {post.id} </h2>
+
+        <p>  {post.title}  </p>
         </div>
     )
 }

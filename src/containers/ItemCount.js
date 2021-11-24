@@ -5,8 +5,8 @@ import CounterDisplay from '../components/CounterDisplay'
 
 function ItemCount({stock,initial,onAdd}) {
 
-    console.log({stock})
-    console.log({initial})
+     console.log({stock})
+    console.log({initial}) 
     
     const [counter, setcounter] = useState(Number(initial)) //esto era string
 

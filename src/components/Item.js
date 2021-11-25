@@ -10,7 +10,7 @@ function Item({post}) {
         <img src={post.image} alt="logo prueba"  style={ {'width': '100px'}}                  /> 
         <h5 className="card-title" > {post.title} </h5>
         <p className="card-text" > {post.description} </p>
-        <a href="/#" className="btn btn-success" >Add to cart</a>
+        <a href="/#" className="btn btn-success" >See details</a>
 
         </div>
 

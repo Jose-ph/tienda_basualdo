@@ -11,8 +11,9 @@ function ItemListContainer({greeting}) {
     useEffect(() => {
 
         // fetch('https://jsonplaceholder.typicode.com/posts/')
+        setTimeout(() => {
 
-        fetch('https://fakestoreapi.com/products?limit=5')
+            fetch('https://fakestoreapi.com/products?limit=5')
         .then((response) => response.json())
         .then((data) =>{ 
             
@@ -21,6 +22,9 @@ function ItemListContainer({greeting}) {
                 setPost(data)
         
         });
+            
+        }, 2000);
+        
         
         
       

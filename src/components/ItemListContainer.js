@@ -10,21 +10,15 @@ function ItemListContainer({greeting}) {
 
     useEffect(() => {
 
-        fetch('https://jsonplaceholder.typicode.com/posts/')
+        // fetch('https://jsonplaceholder.typicode.com/posts/')
 
+        fetch('https://fakestoreapi.com/products?limit=5')
         .then((response) => response.json())
         .then((data) =>{ 
             
                 console.log('Esto viene de api' ,data)
 
                 setPost(data)
-
-                 
-                       
-                    
-
-
-                
         
         });
         

@@ -10,7 +10,7 @@ function ItemList({post}) {
 
 
     return (
-        <div>
+        <div className= 'd-flex flex-row'>
             {post.map(postElement => {
 
                 return  <Item post = {postElement}    />

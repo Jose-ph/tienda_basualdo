@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 function Item({post}) {
     return (
         <div>
@@ -12,6 +13,7 @@ function Item({post}) {
         <p className="card-text" > {post.description} </p>
         <a href="/#" className="btn btn-success" >See details</a>
 
+        
         </div>
 
         </div>

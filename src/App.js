@@ -11,6 +11,7 @@ import ItemDetailContainer from './containers/ItemDetailContainer';
 function App() {
   return (
     <div className="App">
+
       <header className="App-header">
 
       < Navbar />
@@ -18,9 +19,9 @@ function App() {
       
       </header>
 
-     {/*  <ItemListContainer greeting="Productos de miel natural multifloral" />
+       <ItemListContainer greeting="Productos de miel natural multifloral" />
 
-      <ItemCount stock = "5" initial= "1"  /> */}
+      {/* <ItemCount stock = "5" initial= "1"  />  */}
 
       <ItemDetailContainer  />
       

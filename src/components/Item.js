@@ -4,7 +4,7 @@ function Item({post}) {
     return (
         <div>
 
-        <div className ="card" style={{'width': '18rem', 'background-color':' #20b9ee '}} >
+        <div className ="card" style={{'width': '18rem', 'backgroundColor':' #20b9ee '}} >
 
         <div className="card-body" >
         <img src={post.image} alt="logo prueba"  style={ {'width': '100px'}}                  /> 

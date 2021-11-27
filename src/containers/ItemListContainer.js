@@ -17,7 +17,7 @@ function ItemListContainer({greeting}) {
             .then((response) => response.json())
             .then((data) =>{ 
             
-                console.log('Esto viene de api' ,data)
+                
 
                 setPost(data)
         
@@ -29,7 +29,7 @@ function ItemListContainer({greeting}) {
       
     }, [])
 
-  console.log('Esto está seteado en el Estado',post )
+ 
 
     return (
         <div>

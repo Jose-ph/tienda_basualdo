@@ -3,7 +3,7 @@
 import Navbar from './components/NavBar';
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
-import ItemListContainer from './components/ItemListContainer';
+import ItemListContainer from './containers/ItemListContainer';
 import ItemCount from './containers/ItemCount';
 
 

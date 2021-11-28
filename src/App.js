@@ -1,11 +1,11 @@
 
 
-import Navbar from './components/NavBar';
+import Navbar from './components/Navbar/NavBar';
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
-import ItemListContainer from './containers/ItemListContainer';
+import ItemListContainer from './containers/ItemListContainer/ItemListContainer';
 
-import ItemDetailContainer from './containers/ItemDetailContainer';
+import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer';
 
 
 function App() {

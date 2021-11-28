@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import React from 'react'
-import Buttons from '../components/Buttons'
-import CounterDisplay from '../components/CounterDisplay'
+import Buttons from '../../components/Buttons/Buttons'
+import CounterDisplay from '../../components/CounterDisplay/CounterDisplay'
 
 function ItemCount({stock,initial,onAdd}) {
 

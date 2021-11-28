@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import ItemDetail from '../components/ItemDetail';
+import ItemDetail from '../../components/ItemDetail/ItemDetail';
+import { getPost } from '../../Services/getItem';
 
 
 function ItemDetailContainer() {
@@ -12,7 +13,7 @@ function ItemDetailContainer() {
     useEffect(() => {
 
            
-            fetch('https://fakestoreapi.com/products/2')
+           /*  fetch('https://fakestoreapi.com/products/2')
             .then((response) => response.json())
             .then((data) =>{ 
             
@@ -23,9 +24,10 @@ function ItemDetailContainer() {
              })
 
                  .catch(err => console.log(err));
+ */
 
-
-        
+        getPost()
+        .then(data => setPost(data))
     
         
         

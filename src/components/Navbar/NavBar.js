@@ -1,6 +1,6 @@
 
-import logoTienda from '../logo3.png'
-import Cartwidget from './Cartwidget';
+import logoTienda from '../../logo3.png'
+import Cartwidget from '../Cartwidget/Cartwidget';
 
 function Navbar() {
   return (

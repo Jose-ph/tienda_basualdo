@@ -1,5 +1,5 @@
 import React from 'react'
-import ItemCount from '../containers/ItemCount';
+import ItemCount from '../../containers/ItemCount/ItemCount';
 
 
 

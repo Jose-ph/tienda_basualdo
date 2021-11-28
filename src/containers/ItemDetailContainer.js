@@ -11,12 +11,8 @@ function ItemDetailContainer() {
     
     useEffect(() => {
 
-       
-            
-                
            
-
-            fetch('https://fakestoreapi.com/products?limit=1')
+            fetch('https://fakestoreapi.com/products/2')
             .then((response) => response.json())
             .then((data) =>{ 
             
@@ -37,11 +33,11 @@ function ItemDetailContainer() {
     }, [])
 
 
-    console.log(post);
+    console.log('Esto es lo que está en el estado Post',post);
 
     return (
         <div>
-            <ItemDetail post= {post[0]}  />
+            <ItemDetail post= {post}  />
         </div>
     )
 }

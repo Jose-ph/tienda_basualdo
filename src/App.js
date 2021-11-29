@@ -26,17 +26,17 @@ function App() {
        
         <Route exact path = "/">
 
+       <ItemListContainer greeting="Home ----->" />
+
+       </Route>
+
+       <Route  exact path = "/category">
+
        <ItemListContainer greeting="Productos de miel natural multifloral" />
 
        </Route>
 
-       <Route  path = "/category/:categoryId">
-
-       <ItemListContainer greeting="Productos de miel natural multifloral" />
-
-       </Route>
-
-       <Route path ="/item/:id" >
+       <Route exact path ="/item" >
 
       <ItemDetailContainer  />
 

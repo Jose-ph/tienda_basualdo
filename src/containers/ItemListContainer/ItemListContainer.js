@@ -1,19 +1,25 @@
 
 import React, { useEffect, useState } from 'react'
-import ItemList from '../../components/ItemList/ItemList'
-import { getPosts } from '../../Services/getItem'
 
+import ItemList from '../../components/ItemList/ItemList'
+import { getPosts,} from '../../Services/getItem'
+
+
+
+
+//Esta era la lógica anterior
 
 
 function ItemListContainer({greeting}) {
 
-    const [post, setPost] = useState([])
+    const [post, setPost] = useState([]);
+   
 
     useEffect(() => {
 
        
         //Esta lógica era la de la entrega anterior 7
-/* 
+
             fetch('https://fakestoreapi.com/products?limit=5')
             .then((response) => response.json())
             .then((data) =>{ 
@@ -23,7 +29,7 @@ function ItemListContainer({greeting}) {
                 setPost(data)
         
         });
-         */
+         
 
             getPosts()
             .then((data) => setPost(data))
@@ -47,3 +53,5 @@ function ItemListContainer({greeting}) {
 }
 
 export default ItemListContainer
+
+ 

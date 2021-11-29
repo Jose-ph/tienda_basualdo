@@ -18,11 +18,17 @@ function Navbar() {
           <a className="nav-link active" aria-current="page" href="/#">Inicio</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/#">Productos</a>
+          <a className="nav-link" href="/#">Electrónica</a>
         </li>
         
         <li className="nav-item">
-          <a className="nav-link " href="/#">Promociones</a>
+          <a className="nav-link " href="/#">Joyas</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link " href="/#">Ropa Hombres</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link " href="/#">Ropa Mujer</a>
         </li>
       </ul>
 

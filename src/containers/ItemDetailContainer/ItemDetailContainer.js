@@ -26,7 +26,7 @@ function ItemDetailContainer() {
                  .catch(err => console.log(err));
  */
 
-        getPost()
+        getPost(2)
         .then(data => setPost(data))
     
         

@@ -29,7 +29,7 @@ function ItemListContainer({greeting}) {
       
     }, [])
 
- 
+    console.log(post)
 
     return (
         <div>

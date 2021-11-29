@@ -6,11 +6,11 @@ function ItemList({post}) {
   
 
     return (
-        <div className= 'd-flex flex-row'>
+        <div className= 'd-flex flex-wrap'>
 
             {post.map(postElement => {
 
-                return  <Item post = {postElement}    />
+                return  <Item post = {postElement} /> 
             } )}
 
            

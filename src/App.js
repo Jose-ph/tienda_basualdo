@@ -30,7 +30,7 @@ function App() {
 
        </Route>
 
-       <Route  path = "/category/:id">
+       <Route  path = "/category/:categoryId">
 
        <ItemListContainer greeting="Productos de miel natural multifloral" />
 

@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-function Item({post}) {
+function Item({post,key}) {
     return (
         <div>
 
-        <div className ="card" style={{'width': '18rem', 'backgroundColor':' #20b9ee '}} >
+        <div  className ="card" style={{'width': '18rem', 'backgroundColor':' #20b9ee '}} >
 
         <div className="card-body" >
         <img src={post.image} alt="logo prueba"  style={ {'width': '100px'}}                  /> 

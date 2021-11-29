@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react'
 import ItemList from '../../components/ItemList/ItemList'
+import { getPosts } from '../../Services/getItem'
 
 
 
@@ -11,8 +12,8 @@ function ItemListContainer({greeting}) {
     useEffect(() => {
 
        
-        
-
+        //Esta lógica era la de la entrega anterior 7
+/* 
             fetch('https://fakestoreapi.com/products?limit=5')
             .then((response) => response.json())
             .then((data) =>{ 
@@ -22,14 +23,17 @@ function ItemListContainer({greeting}) {
                 setPost(data)
         
         });
-        
+         */
+
+            getPosts()
+            .then((data) => setPost(data))
         
         
         
       
     }, [])
 
-    console.log(post)
+    console.log("Este post viene de la función",post)
 
     return (
         <div>

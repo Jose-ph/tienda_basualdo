@@ -17,10 +17,17 @@ function ItemListContainer({greeting}) {
 
     useEffect(() => {
 
-       
-            //getPosts()
+        if(categoryId === undefined){
+            getPosts()
+            .then(data => setPost(data))
+        }
+        else {
+             //getPosts()
            getPostsByCategory(categoryId)
-            .then((data) => setPost(data))
+           .then((data) => setPost(data))
+
+        }
+           
         
         
         

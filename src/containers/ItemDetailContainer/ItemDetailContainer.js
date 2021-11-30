@@ -13,7 +13,7 @@ function ItemDetailContainer() {
     
     useEffect(() => {
 
-
+        
         getPost(id)
         
         .then(data => setPost(data))

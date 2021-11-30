@@ -19,6 +19,8 @@ function Navbar() {
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/#">Electrónica</a>
+
+
         </li>
         
         <li className="nav-item">

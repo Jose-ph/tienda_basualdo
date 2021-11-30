@@ -31,12 +31,12 @@ export const getPosts = () =>{
 
 })}
 
-export const getPostsById = () =>{
+export const getPostsByCategory = (categoryId) =>{
 
 
     return new Promise((resolve,reject)=>{
 
-        fetch('https://fakestoreapi.com/products?limit=20')
+        fetch(`https://fakestoreapi.com/products/category/${categoryId}`)
         .then((response) => response.json())
         .then( data => resolve(data))
         .catch(err => {

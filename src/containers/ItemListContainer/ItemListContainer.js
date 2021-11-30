@@ -1,15 +1,51 @@
 
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 import ItemList from '../../components/ItemList/ItemList'
-import { getPosts,} from '../../Services/getItem'
+import { getPosts, getPostsByCategory,} from '../../Services/getItem'
 
 
+
+
+
+function ItemListContainer({greeting}) {
+
+    const [post, setPost] = useState([]);
+    const {categoryId} = useParams()
+   
+
+    useEffect(() => {
+
+       
+            //getPosts()
+           getPostsByCategory(categoryId)
+            .then((data) => setPost(data))
+        
+        
+        
+      
+    }, [categoryId])
+
+    console.log("Este post viene de la función",post)
+
+    return (
+        <div>
+
+            <h2 style={{"margin": "20px", "padding": "5px"}}    >   {greeting}   </h2>
+
+            <ItemList  post = {post}  />
+            
+        </div>
+    )
+}
+
+export default ItemListContainer 
 
 
 //Esta era la lógica anterior
 
-
+/* 
 function ItemListContainer({greeting}) {
 
     const [post, setPost] = useState([]);
@@ -52,6 +88,6 @@ function ItemListContainer({greeting}) {
     )
 }
 
-export default ItemListContainer
+export default ItemListContainer */
 
  

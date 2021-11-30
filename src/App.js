@@ -30,13 +30,13 @@ function App() {
 
        </Route>
 
-       <Route  exact path = "/category">
+       <Route  exact path = "/category/:categoryId">
 
        <ItemListContainer greeting="Productos de miel natural multifloral" />
 
        </Route>
 
-       <Route exact path ="/item" >
+       <Route exact path ="/item/:id" >
 
       <ItemDetailContainer  />
 

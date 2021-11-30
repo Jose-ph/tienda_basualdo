@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useHistory } from 'react-router'
 
 
 function Item({post,key}) {
+    let history = useHistory();
+    const seeDetails = () =>{
+        history.push(`/item/${post.id}`)
+    }
+
     return (
         <div>
 
@@ -11,7 +17,7 @@ function Item({post,key}) {
         <img src={post.image} alt="logo prueba"  style={ {'width': '100px'}}                  /> 
         <h5 className="card-title" > {post.title} </h5>
         <p className="card-text" > {post.description} </p>
-        <a href="/#" className="btn btn-success" >See details</a>
+        <button onClick = {seeDetails} className="btn btn-success" >See details</button>
 
         
         </div>

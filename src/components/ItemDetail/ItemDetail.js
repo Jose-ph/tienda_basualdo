@@ -1,5 +1,6 @@
 import React from 'react'
 import ItemCount from '../../containers/ItemCount/ItemCount';
+import { useHistory } from 'react-router'
 
 
 
@@ -9,6 +10,12 @@ function ItemDetail({post}) {
 
     let stock = 3;
     const initial = 0;
+
+    let history = useHistory();
+    const goBack = () =>{
+
+        history.push('/')
+    }
     return (
         <div>
         
@@ -23,7 +30,7 @@ function ItemDetail({post}) {
         <p className="card-text" > {post.description} </p>
 
         <ItemCount stock= {stock} initial = {initial} />
-        <a href="/#" className="btn btn-success mt-2" >Volver</a>
+        <button onClick={goBack} className="btn btn-success mt-2" >Volver</button>
        
 
 </div>

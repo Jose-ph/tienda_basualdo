@@ -32,7 +32,7 @@ function App() {
 
        <Route  exact path = "/category/:categoryId">
 
-       <ItemListContainer greeting="Productos de miel natural multifloral" />
+       <ItemListContainer greeting="Categorías ------>" />
 
        </Route>
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 function CounterDisplay({counter}) {
     return (
-        <div>
+        <div  >
             <h3 > {counter} </h3>
         </div>
     )

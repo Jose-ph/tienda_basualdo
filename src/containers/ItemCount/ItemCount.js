@@ -29,7 +29,7 @@ function ItemCount({stock,initial,onAdd}) {
 
     return (
         <div>
-            <CounterDisplay counter= {counter} />
+            <CounterDisplay  counter= {counter} />
             <Buttons add = {add}  subtract = {subtract}   />
         </div>
     )

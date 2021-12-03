@@ -2,14 +2,16 @@ import React, { useEffect } from 'react'
 import { useHistory } from 'react-router'
 
 
-function Item({post,key}) {
+function Item({post}) {
     let history = useHistory();
     const seeDetails = () =>{
         history.push(`/item/${post.id}`)
     }
+ 
 
+    
     return (
-        <div>
+        <div >
 
         <div  className ="card" style={{'width': '18rem', 'backgroundColor':' #20b9ee '}} >
 

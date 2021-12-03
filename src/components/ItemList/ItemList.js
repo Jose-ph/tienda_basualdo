@@ -10,7 +10,7 @@ function ItemList({post}) {
 
             {post.map(postElement => {
 
-                return  <Item post = {postElement} /> 
+                return  <Item post = {postElement} key={postElement.id.toString()} /> 
             } )}
 
            

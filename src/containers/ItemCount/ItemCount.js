@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import React from 'react'
-import Buttons from '../../components/Buttons/Buttons'
-import CounterDisplay from '../../components/CounterDisplay/CounterDisplay'
+
 
 function ItemCount({stock,initial,onAdd}) {
 
      console.log({stock})
     console.log({initial}) 
+
+     
     
     const [counter, setcounter] = useState(Number(initial)) //esto era string
 
@@ -15,7 +16,9 @@ function ItemCount({stock,initial,onAdd}) {
         if( counter < stock){
 
             setcounter(counter + 1);
-        }
+        } 
+
+        setcounter(counter+1)
 
     }
 
@@ -29,8 +32,11 @@ function ItemCount({stock,initial,onAdd}) {
 
     return (
         <div>
-            <CounterDisplay  counter= {counter} />
-            <Buttons add = {add}  subtract = {subtract}   />
+            <h3 > {counter} </h3>
+            <button onClick = {add}  className ="btn btn-primary mx-2" >+</button>
+            <button onClick={subtract} className ="btn btn-warning mx-2" >-</button>
+            <button onClick= {onAdd} className ="btn btn-success" >Agregar al Carrito</button>
+           
         </div>
     )
 }

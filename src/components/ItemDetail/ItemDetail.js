@@ -8,14 +8,18 @@ import { useHistory } from 'react-router'
 function ItemDetail({post}) {
     console.log('Esto viene de ItemDetailContainer', {post});
 
+   
     let stock = 3;
     const initial = 0;
 
     let history = useHistory();
+
     const goBack = () =>{
 
         history.push('/')
     }
+      
+
     return (
         <div   >
         
@@ -29,7 +33,7 @@ function ItemDetail({post}) {
         <p className="card-text align-self-center" > {post.price} </p>
         <p className="card-text align-self-center" > {post.description} </p>
 
-        <ItemCount stock= {stock} initial = {initial} />
+        <ItemCount stock= {stock} initial = {initial}  />
         <button onClick={goBack} className="btn btn-success mt-2" >Volver</button>
        
 

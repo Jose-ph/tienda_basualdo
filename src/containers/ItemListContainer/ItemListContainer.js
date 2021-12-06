@@ -20,6 +20,7 @@ function ItemListContainer({greeting}) {
         if(categoryId === undefined){
             getPosts()
             .then(data => setPost(data))
+            
         }
         else {
              //getPosts()
@@ -39,10 +40,11 @@ function ItemListContainer({greeting}) {
     return (
         <div>
 
+          
             <h2 style={{"margin": "20px", "padding": "5px"}}    >   {greeting}   </h2>
 
             <ItemList  post = {post}  />
-            
+                                    
         </div>
     )
 }

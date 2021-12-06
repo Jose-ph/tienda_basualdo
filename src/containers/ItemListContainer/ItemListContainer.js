@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 
 import ItemList from '../../components/ItemList/ItemList'
+import Loader from '../../components/Loader/Loader';
 import { getPosts, getPostsByCategory,} from '../../Services/getItem'
 
 
@@ -40,11 +41,20 @@ function ItemListContainer({greeting}) {
     return (
         <div>
 
-          
+            
+          {/* 
             <h2 style={{"margin": "20px", "padding": "5px"}}    >   {greeting}   </h2>
 
             <ItemList  post = {post}  />
-                                    
+                                     */}
+
+             {post.length !==0 ?
+             
+
+             <ItemList  post = {post}  />
+            :
+             
+            <Loader/>  }
         </div>
     )
 }

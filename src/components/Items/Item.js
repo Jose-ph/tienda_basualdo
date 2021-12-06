@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+
 import { useHistory } from 'react-router'
 
 
 function Item({post}) {
     let history = useHistory();
+
     const seeDetails = () =>{
         history.push(`/item/${post.id}`)
     }

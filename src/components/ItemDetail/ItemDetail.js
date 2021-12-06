@@ -6,6 +6,7 @@ import { useHistory } from 'react-router'
 
 
 function ItemDetail({post}) {
+    
     console.log('Esto viene de ItemDetailContainer', {post});
 
    

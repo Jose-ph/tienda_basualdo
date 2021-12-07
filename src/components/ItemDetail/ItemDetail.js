@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ItemCount from '../../containers/ItemCount/ItemCount';
 import { useHistory } from 'react-router'
 
@@ -9,12 +9,15 @@ function ItemDetail({post}) {
     
     console.log('Esto viene de ItemDetailContainer', {post});
 
-   
+    const [buy, setBuy] = useState(false)
     let stock = 3;
     const initial = 0;
 
     let history = useHistory();
 
+    const handleChange = (numberofItems) =>{
+        setBuy(true)
+    }
     const goBack = () =>{
 
         history.push('/')
@@ -22,7 +25,7 @@ function ItemDetail({post}) {
       
 
     return (
-        <div   >
+        <div>
         
         <div className="d-flex justify-content-center"  >
 
@@ -34,10 +37,25 @@ function ItemDetail({post}) {
         <p className="card-text align-self-center" > {post.price} </p>
         <p className="card-text align-self-center" > {post.description} </p>
 
-        <ItemCount stock= {stock} initial = {initial}  />
-        <button onClick={goBack} className="btn btn-success mt-2" >Volver</button>
        
+       {/*  <ItemCount stock= {stock} initial = {initial} onAdd = {handleChange}  />
 
+        <button onClick={goBack} className="btn btn-success mt-2" >Volver</button>
+            
+        <button onClick={goBack} className="btn btn-success mt-2" >Comprar</button>    */}  
+
+        {!buy?
+
+            //Esto lo puse como children porque quiero mostrar ese botón y no sé como se hace sino.
+        <ItemCount stock= {stock} initial = {initial} onAdd = {handleChange}> </ItemCount>
+        
+        
+        
+          :
+        
+        <button onClick={goBack} className="btn btn-success mt-2" >Comprar </button>                 
+        }
+        
         </div>
 
         </div>

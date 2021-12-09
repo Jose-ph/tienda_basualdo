@@ -1,59 +1,44 @@
+import Navbar from "./components/Navbar/NavBar";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import ItemListContainer from "./containers/ItemListContainer/ItemListContainer";
 
-import Navbar from './components/Navbar/NavBar';
+import ItemDetailContainer from "./containers/ItemDetailContainer/ItemDetailContainer";
 
-import "bootstrap/dist/css/bootstrap.min.css"
-import './App.css';
-import ItemListContainer from './containers/ItemListContainer/ItemListContainer';
-
-import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer';
-
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Cart from './components/Cart/Cart';
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Cart from "./components/Cart/Cart";
+import CartContextProvider, { CartContext } from "./Context/CartContext";
 
 function App() {
   return (
+    <CartContextProvider>
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <Navbar />
+          </header>
 
-     <Router>  
-    <div className="App">
+          <Switch>
+            <Route exact path="/">
+              <ItemListContainer greeting="Home ----->" />
+            </Route>
 
-      <header className="App-header">
+            <Route exact path="/category/:categoryId">
+              <ItemListContainer greeting="Categorías ------>" />
+            </Route>
 
-      < Navbar />
-     
-      </header>
+            <Route exact path="/item/:id">
+              <ItemDetailContainer />
+            </Route>
 
-      <Switch> 
-       
-        <Route exact path = "/">
-
-       <ItemListContainer greeting="Home ----->" />
-
-       </Route>
-
-       <Route  exact path = "/category/:categoryId">
-
-       <ItemListContainer greeting="Categorías ------>" />
-
-       </Route>
-
-       <Route exact path ="/item/:id" >
-
-      <ItemDetailContainer  />
-
-      </Route>
-
-      <Route exact path ="/cart" >
-
-      <Cart  />
-
-      </Route>
-
-
-      </Switch>
-    </div>
-    </Router>
+            <Route exact path="/cart">
+              <Cart />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </CartContextProvider>
   );
 }
 

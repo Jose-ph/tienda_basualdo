@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import ItemCount from '../../containers/ItemCount/ItemCount';
-import { useHistory } from 'react-router'
+ import { useHistory } from 'react-router' 
+import { CartContext } from '../../Context/CartContext';
 
 
 
@@ -9,23 +10,36 @@ function ItemDetail({post}) {
     
     console.log('Esto viene de ItemDetailContainer', {post});
 
+    const  {addItem} = useContext(CartContext)
+
     const [buy, setBuy] = useState(false)
     let stock = 3;
     const initial = 0;
 
-    let history = useHistory();
+     let history = useHistory(); 
 
     const handleChange = (numberofItems) =>{
         setBuy(true)
     }
-    const goBack = () =>{
+   const goBack = () =>{
 
         history.push('/')
-    }
+    } 
     
-    const goCart = () =>{
+  /*   const handleCart = () =>{ //Esta función ahora es para comprar y no navegar
         history.push('/cart')
     }
+ */
+
+      
+    const handleCart = () =>{ //Esta función ahora es para comprar y no navegar
+        
+        addItem(post);
+       
+    }
+ 
+
+
 
     return (
         <div>
@@ -56,7 +70,7 @@ function ItemDetail({post}) {
         
           :
         
-        <button onClick={goCart} className="btn btn-success mt-2" >Comprar </button>                 
+        <button onClick={handleCart} className="btn btn-success mt-2" >Comprar </button>                 
         }
         
         </div>

@@ -49,7 +49,7 @@ function Navbar() {
   </div>
 </nav>
 
-    <h3>Del campe</h3>
+    <h3>Del campe</h3> {/* Quitar esto */}
 
     
  

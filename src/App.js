@@ -9,6 +9,7 @@ import ItemListContainer from './containers/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Cart from './components/Cart/Cart';
 
 
 function App() {
@@ -40,6 +41,12 @@ function App() {
        <Route exact path ="/item/:id" >
 
       <ItemDetailContainer  />
+
+      </Route>
+
+      <Route exact path ="/cart" >
+
+      <Cart  />
 
       </Route>
 

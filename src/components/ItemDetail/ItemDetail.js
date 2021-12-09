@@ -22,7 +22,10 @@ function ItemDetail({post}) {
 
         history.push('/')
     }
-      
+    
+    const goCart = () =>{
+        history.push('/cart')
+    }
 
     return (
         <div>
@@ -53,7 +56,7 @@ function ItemDetail({post}) {
         
           :
         
-        <button onClick={goBack} className="btn btn-success mt-2" >Comprar </button>                 
+        <button onClick={goCart} className="btn btn-success mt-2" >Comprar </button>                 
         }
         
         </div>

@@ -11,6 +11,7 @@ function ItemDetail({post}) {
     console.log('Esto viene de ItemDetailContainer', {post});
 
     const  {addItem} = useContext(CartContext)
+    const {isInCart} = useContext(CartContext)
 
     const [buy, setBuy] = useState(false)
     let stock = 3;
@@ -34,7 +35,19 @@ function ItemDetail({post}) {
       
     const handleCart = () =>{ //Esta función ahora es para comprar y no navegar
         
-        addItem(post);
+        const duplicate = isInCart(post.id)
+
+        if(!duplicate){
+
+            addItem(post);
+
+        }
+
+        else {
+            alert("Producto existente en el carrito")
+        }
+
+      
        
     }
  

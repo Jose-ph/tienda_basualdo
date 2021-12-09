@@ -39,7 +39,7 @@ function ItemDetail({post}) {
     }
  
 
-
+    
 
     return (
         <div>

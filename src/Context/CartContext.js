@@ -12,12 +12,32 @@ const CartContextProvider = ({children}) => {
         setCart([...cart, item]);
     }
 
-    console.log(cart);
+    const removeItem = (itemId) => {
+        
+        setCart(cart.filter(post => post.id !== itemId));
+    }
+
+    const clearCart = () => {
+        
+        setCart([]);
+    }
+
+    const isInCart = (itemid) => {
+        
+        return cart.some(post => post.id === itemid)
+    }
+
+
+    
 
     return(
         <CartContext.Provider value = {{
             cart,
-            addItem
+            addItem,
+            removeItem,
+            isInCart,
+            clearCart,
+
         }}>
             {children}
         </CartContext.Provider>

@@ -7,6 +7,7 @@ import { getPost } from '../../Services/getItem';
 function ItemDetailContainer() {
 
     const [post, setPost] = useState([])
+    
     //Con esto obtengo el id del producto para el detalle
     const { id } = useParams();
       

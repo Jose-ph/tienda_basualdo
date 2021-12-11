@@ -18,7 +18,7 @@ function ItemCount({stock,initial,onAdd}) {
             setcounter(counter + 1);
         } 
 
-        setcounter(counter+1)
+        //setcounter(counter+1) esto era para sumar sin tener en cuenta el stock
 
     }
 

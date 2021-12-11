@@ -14,7 +14,9 @@ function ItemDetail({post}) {
     const {isInCart} = useContext(CartContext)
 
     const [buy, setBuy] = useState(false)
+
     let stock = 3;
+
     const initial = 0;
 
      let history = useHistory(); 
@@ -40,6 +42,7 @@ function ItemDetail({post}) {
         if(!duplicate){
 
             addItem(post);
+
 
         }
 

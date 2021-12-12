@@ -1,16 +1,16 @@
 import React from 'react'
 import Item from '../Items/Item'
 
-function ItemList({post}) {
+function ItemList({products}) {
 
   
 
     return (
         <div className= 'd-flex flex-wrap'>
 
-            {post.map(postElement => {
+            {products.map(productsElement => {
 
-                return  <Item post = {postElement} key={postElement.id.toString()} /> 
+                return  <Item products = {productsElement} key={productsElement.id.toString()} /> 
             } )}
 
            

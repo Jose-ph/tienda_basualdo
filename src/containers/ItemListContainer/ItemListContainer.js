@@ -12,7 +12,7 @@ import { getPosts, getPostsByCategory,} from '../../Services/getItem'
 
 function ItemListContainer({greeting}) {
 
-    const [post, setPost] = useState([]);
+    const [products, setProducts] = useState([]);
     const {categoryId} = useParams()
    
 
@@ -20,13 +20,13 @@ function ItemListContainer({greeting}) {
 
         if(categoryId === undefined){
             getPosts()
-            .then(data => setPost(data))
+            .then(data => setProducts(data))
             
         }
         else {
              //getPosts()
            getPostsByCategory(categoryId)
-           .then((data) => setPost(data))
+           .then((data) => setProducts(data))
 
         }
            
@@ -36,7 +36,7 @@ function ItemListContainer({greeting}) {
       
     }, [categoryId])
 
-    console.log("Este post viene de la función",post)
+    console.log("Este post viene de la función",products)
 
     return (
         <div>
@@ -48,10 +48,10 @@ function ItemListContainer({greeting}) {
             <ItemList  post = {post}  />
                                      */}
 
-             {post.length !==0 ?
+             {products.length !==0 ?
              
 
-             <ItemList  post = {post}  />
+             <ItemList  products = {products}  />
             :
              
             <Loader/>  }

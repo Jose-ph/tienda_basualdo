@@ -6,9 +6,9 @@ import { CartContext } from '../../Context/CartContext';
 
 
 
-function ItemDetail({post}) {
+function ItemDetail({products}) {
     
-    console.log('Esto viene de ItemDetailContainer', {post});
+    console.log('Esto viene de ItemDetailContainer', {products});
 
     const  {addItem} = useContext(CartContext)
     const {isInCart} = useContext(CartContext)
@@ -37,11 +37,11 @@ function ItemDetail({post}) {
       
     const handleCart = () =>{ //Esta función ahora es para comprar y no navegar
         
-        const duplicate = isInCart(post.id)
+        const duplicate = isInCart(products.id)
 
         if(!duplicate){
 
-            addItem(post);
+            addItem(products);
 
 
         }
@@ -65,10 +65,10 @@ function ItemDetail({post}) {
         <div className ="card " style={{'width': '50rem', 'backgroundColor':' #20b9ee '}} >
 
         <div className="card-body d-flex flex-column justify-content-around" >
-        <img className="align-self-center" src={post.image} alt="logo prueba"  style={ {'width': '100px'}}                  /> 
-        <h5 className="card-title align-self-center" > {post.title} </h5>
-        <p className="card-text align-self-center" > {post.price} </p>
-        <p className="card-text align-self-center" > {post.description} </p>
+        <img className="align-self-center" src={products.image} alt="logo prueba"  style={ {'width': '100px'}}                  /> 
+        <h5 className="card-title align-self-center" > {products.title} </h5>
+        <p className="card-text align-self-center" > {products.price} </p>
+        <p className="card-text align-self-center" > {products.description} </p>
 
        
        {/*  <ItemCount stock= {stock} initial = {initial} onAdd = {handleChange}  />

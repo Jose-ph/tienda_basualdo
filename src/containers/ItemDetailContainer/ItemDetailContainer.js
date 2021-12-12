@@ -6,7 +6,7 @@ import { getPost } from '../../Services/getItem';
 
 function ItemDetailContainer() {
 
-    const [post, setPost] = useState([])
+    const [products, setProducts] = useState([])
     
     //Con esto obtengo el id del producto para el detalle
     const { id } = useParams();
@@ -17,7 +17,7 @@ function ItemDetailContainer() {
         
         getPost(id)
         
-        .then(data => setPost(data))
+        .then(data => setProducts(data))
     
         
         
@@ -25,11 +25,11 @@ function ItemDetailContainer() {
     }, [id])
 
 
-    console.log('Esto es lo que está en el estado Post desde ItemDetailContainer',post);
+    console.log('Esto es lo que está en el estado Post desde ItemDetailContainer',products);
     console.log({id}); 
     return (
         <div>
-            <ItemDetail post= {post}  />
+            <ItemDetail products= {products}  />
         </div>
     )
 }

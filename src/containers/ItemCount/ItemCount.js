@@ -4,21 +4,19 @@ import React from 'react'
 
 function ItemCount({stock,initial,onAdd}) {
 
-     console.log({stock})
-    console.log({initial}) 
-
+  
      
     
     const [counter, setcounter] = useState(Number(initial)) //esto era string
 
     function add (){
 
-        if( counter < stock){
+       // if( counter < stock){
 
-            setcounter(counter + 1);
-        } 
+         //   setcounter(counter + 1);
+        //} 
 
-        //setcounter(counter+1) esto era para sumar sin tener en cuenta el stock
+        setcounter(counter+1)// esto era para sumar sin tener en cuenta el stock
 
     }
 

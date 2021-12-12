@@ -15,6 +15,9 @@ function ItemDetail({products}) {
 
     const [buy, setBuy] = useState(false)
 
+    const [product, setProduct] = useState({})
+    const [qty, setqty] = useState(0)
+
     let stock = 3;
 
     const initial = 0;
@@ -22,8 +25,12 @@ function ItemDetail({products}) {
      let history = useHistory(); 
 
     const handleChange = (numberofItems) =>{
+
         setBuy(true)
+
+
     }
+
    const goBack = () =>{
 
         history.push('/')
@@ -35,20 +42,26 @@ function ItemDetail({products}) {
  */
 
       
-    const handleCart = () =>{ //Esta función ahora es para comprar y no navegar
+    const handleCart = (numberofItems) =>{ //Esta función ahora es para comprar y no navegar
         
-        const duplicate = isInCart(products.id)
+       // const duplicate = isInCart(products.id)
 
-        if(!duplicate){
+       // if(!duplicate){
 
-            addItem(products);
+            addItem({...products, quantity :numberofItems});
+
+            /* setqty(numberofItems)
+            setProduct({...product, quantity:{numberofItems} })
+             */
+     
+            
 
 
-        }
+       // }
 
-        else {
-            alert("Producto existente en el carrito")
-        }
+      //  else {
+           // alert("Producto existente en el carrito")
+      //  }
 
       
        
@@ -75,14 +88,14 @@ function ItemDetail({products}) {
 
         <button onClick={goBack} className="btn btn-success mt-2" >Volver</button>
             
-        <button onClick={goBack} className="btn btn-success mt-2" >Comprar</button>    */}  
+        <button onClick={goBack} className="btn btn-success mt-2" >Comprar</button>   
+        <ItemCount stock= {stock} initial = {initial} onAdd = {handleChange}> </ItemCount>  */}  
 
         {!buy?
 
             //Esto lo puse como children porque quiero mostrar ese botón y no sé como se hace sino.
-        <ItemCount stock= {stock} initial = {initial} onAdd = {handleChange}> </ItemCount>
-        
-        
+           
+            <ItemCount stock= {stock} initial = {initial} onAdd = {handleChange}> </ItemCount>
         
           :
         

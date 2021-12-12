@@ -30,7 +30,7 @@ const CartContextProvider = ({children}) => {
     }
 
 
-    
+    console.log('Carrito',cart);
 
     return(
         <CartContext.Provider value = {{

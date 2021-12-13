@@ -7,6 +7,8 @@ import { CartContext } from '../../Context/CartContext';
 
 
 function ItemDetail({products}) {
+
+    
     
     console.log('Esto viene de ItemDetailContainer', {products});
 
@@ -15,8 +17,8 @@ function ItemDetail({products}) {
 
     const [buy, setBuy] = useState(false)
 
-    const [product, setProduct] = useState({})
-    const [qty, setqty] = useState(0)
+    //const [product, setProduct] = useState({})
+   const [qty, setqty] = useState(1)
 
     let stock = 3;
 
@@ -24,10 +26,10 @@ function ItemDetail({products}) {
 
      let history = useHistory(); 
 
-    const handleChange = (numberofItems) =>{
+    const handleAddCart = (numberofItems) =>{
 
         setBuy(true)
-
+        
 
     }
 
@@ -42,32 +44,30 @@ function ItemDetail({products}) {
  */
 
       
-    const handleCart = (numberofItems) =>{ //Esta función ahora es para comprar y no navegar
+    const handlePurchase = () =>{ //Esta función ahora es para comprar y no navegar
         
-       // const duplicate = isInCart(products.id)
+        const duplicate = isInCart(products.id)
 
-       // if(!duplicate){
+       if(!duplicate){
 
-            addItem({...products, quantity :numberofItems});
+            addItem({products});
 
-            /* setqty(numberofItems)
-            setProduct({...product, quantity:{numberofItems} })
-             */
-     
+         
             
 
 
-       // }
+       }
 
-      //  else {
-           // alert("Producto existente en el carrito")
-      //  }
+      else {
+            alert("Producto existente en el carrito")
+       }
 
       
        
     }
  
 
+  
     
 
     return (
@@ -91,15 +91,15 @@ function ItemDetail({products}) {
         <button onClick={goBack} className="btn btn-success mt-2" >Comprar</button>   
         <ItemCount stock= {stock} initial = {initial} onAdd = {handleChange}> </ItemCount>  */}  
 
-        {!buy?
-
-            //Esto lo puse como children porque quiero mostrar ese botón y no sé como se hace sino.
+        {  !buy?
            
-            <ItemCount stock= {stock} initial = {initial} onAdd = {handleChange}> </ItemCount>
+          <ItemCount  quantity={qty} modifyQuantity={setqty} stock= {stock} initial = {initial} onAdd = {handleAddCart} > </ItemCount>
+          
         
           :
         
-        <button onClick={handleCart} className="btn btn-success mt-2" >Comprar </button>                 
+          <button onClick={handlePurchase} className="btn btn-success mt-2" >Comprar </button> 
+                       
         }
         
         </div>

@@ -93,15 +93,22 @@ function ItemDetail({products}) {
         <button onClick={goBack} className="btn btn-success mt-2" >Comprar</button>   
         <ItemCount stock= {stock} initial = {initial} onAdd = {handleChange}> </ItemCount>  */}  
 
-        {  !buy?
+        {  !buy?(
            
-          <ItemCount  quantity={qty} modifyQuantity={setqty} stock= {stock} initial = {initial} onAdd = {handleAddCart} > </ItemCount>
-          
+         <>
+           <ItemCount  quantity={qty} modifyQuantity={setqty} stock= {stock} initial = {initial} onAdd = {handleAddCart} > </ItemCount>
+           <button onClick={goBack} className="btn btn-success mt-2" >Volver</button>
+           </>
+        )
         
           :
-        
-          <button onClick={handlePurchase} className="btn btn-success mt-2" >Comprar </button> 
-                       
+            (
+                <>
+            <button onClick={handlePurchase} className="btn btn-success mt-2" >Comprar </button> 
+            <button onClick={goBack} className="btn btn-success mt-2" >Volver</button>
+
+          </> 
+            )
         }
         
         </div>

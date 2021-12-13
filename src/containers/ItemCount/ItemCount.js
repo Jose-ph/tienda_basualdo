@@ -1,4 +1,4 @@
-import { useState } from 'react'
+//import { useState } from 'react'
 import React from 'react'
 
 
@@ -7,7 +7,7 @@ function ItemCount({stock,initial,onAdd, quantity,modifyQuantity,onAddCart}) {
     
      
     
-    const [counter, setcounter] = useState(Number(initial)) //esto era string
+    //const [counter, setcounter] = useState(Number(initial)) //esto era string
 
     
     function add (){

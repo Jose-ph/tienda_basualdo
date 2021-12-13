@@ -15,6 +15,8 @@ function ItemCount({stock,initial,onAdd, quantity,modifyQuantity,onAddCart}) {
        if( quantity < stock && quantity>=1){
 
         modifyQuantity  (quantity+1)
+
+        
          //   setcounter(counter + 1);
         //} 
 
@@ -50,7 +52,7 @@ function ItemCount({stock,initial,onAdd, quantity,modifyQuantity,onAddCart}) {
 
           
 
-             <button onClick= {(counter) => onAdd(counter)}  className ="btn btn-success" >Agregar al Carrito</button>
+             <button onClick= {(quantity) => onAdd(quantity)}  className ="btn btn-success" >Agregar al Carrito</button>
            
         </div>
     )

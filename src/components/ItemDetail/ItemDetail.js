@@ -17,18 +17,20 @@ function ItemDetail({products}) {
 
     const [buy, setBuy] = useState(false)
 
-    //const [product, setProduct] = useState({})
+   const [product, setProduct] = useState({})
    const [qty, setqty] = useState(1)
 
-    let stock = 3;
+    let stock = 20;
 
     const initial = 0;
 
      let history = useHistory(); 
 
+
     const handleAddCart = (numberofItems) =>{
 
         setBuy(true)
+        setProduct({...products,quantity: qty})
         
 
     }
@@ -50,7 +52,7 @@ function ItemDetail({products}) {
 
        if(!duplicate){
 
-            addItem({products});
+            addItem({product});
 
          
             

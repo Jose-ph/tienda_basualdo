@@ -7,9 +7,17 @@ const CartContextProvider = ({children}) => {
 
     const [cart, setCart] = useState([]);
 
+    const totalQty = () => {
+
+        
+        
+      
+        return cart.reduce((counter,product) =>  counter +  product.quantity, 0 ) 
+    }
+
     const totalPurchase = () =>{
 
-        return cart.reduce ((counter, product)=> Number(counter) + Number( product.price) * Number( product.quantity) , 0)
+        return cart.reduce ((counter, product)=> counter+ product.price * product.quantity, 0)
     }
 
     const addItem = (item) => {
@@ -45,6 +53,7 @@ const CartContextProvider = ({children}) => {
             isInCart,
             clearCart,
             totalPurchase,
+            totalQty,
 
         }}>
             {children}

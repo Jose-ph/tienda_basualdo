@@ -10,14 +10,16 @@ function ItemDetail({products}) {
 
     
     
-    console.log('Esto viene de ItemDetailContainer', {products});
+    /* console.log('Esto viene de ItemDetailContainer', {...products}); */
 
-    const  {addItem} = useContext(CartContext)
+    const  {cart,addItem} = useContext(CartContext)
+
     const {isInCart} = useContext(CartContext)
 
     const [buy, setBuy] = useState(false)
 
-   const [product, setProduct] = useState({})
+   //const [product, setProduct] = useState({})
+
    const [qty, setqty] = useState(1)
 
     let stock = 20;
@@ -27,12 +29,31 @@ function ItemDetail({products}) {
      let history = useHistory(); 
 
 
-    const handleAddCart = (numberofItems) =>{
+    /* const handleAddCart = () =>{
 
         setBuy(true)
-        setProduct({...products, quantity: qty})
+
+        setProduct({...products, 'quantity': qty})
         
 
+    } */
+
+    const handleAddCart = () =>{
+
+        if(isInCart(products.id)){
+            setBuy(true)
+
+            alert('Producto existente')
+        }
+        else{
+            if(qty > 0){
+                setBuy(true)
+                console.log(buy)
+                const newProduct = {...products, quantity:qty}
+                addItem(newProduct)
+               
+            }
+        }
     }
 
    const goBack = () =>{
@@ -50,17 +71,13 @@ function ItemDetail({products}) {
  */
 
       
-    const handlePurchase = () =>{ //Esta función ahora es para comprar y no navegar
+   /*  const handlePurchase = () =>{ //Esta función ahora es para comprar y no navegar
         
         const duplicate = isInCart(products.id)
 
        if(!duplicate){
 
             addItem({product});
-
-         
-            
-
 
        }
 
@@ -71,8 +88,16 @@ function ItemDetail({products}) {
       
        
     }
- 
+  */
 
+    const handlePurchase = () => {
+
+        console.log(qty )
+        console.log("aca se compra")
+
+       let prueba = cart.reduce ((counter,product)=> counter + product.price * product.quantity, 0);
+       console.log(prueba)
+    }
   
     
 
@@ -97,7 +122,7 @@ function ItemDetail({products}) {
         <button onClick={goBack} className="btn btn-success mt-2" >Comprar</button>   
         <ItemCount stock= {stock} initial = {initial} onAdd = {handleChange}> </ItemCount>  */}  
 
-        {  !buy?(
+        {  !buy ? (
            
          <>
            <ItemCount  quantity={qty} modifyQuantity={setqty} stock= {stock} initial = {initial} onAdd = {handleAddCart} > </ItemCount>
@@ -108,7 +133,7 @@ function ItemDetail({products}) {
           :
             (
                 <>
-            <button onClick={handlePurchase} className="btn btn-success mt-2" >Comprar </button> 
+            <button onClick={handlePurchase} className="btn btn-success mt-2" > Comprar </button> 
             <button onClick={goBack} className="btn btn-success mt-2" >Volver</button>
             <button onClick={goCart} className="btn btn-success mt-2" >Carrito</button>
 

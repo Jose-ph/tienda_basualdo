@@ -25,11 +25,9 @@ function ItemDetailContainer() {
     }, [id])
 
 
-    console.log('Esto es lo que está en el estado Post desde ItemDetailContainer',products);
-    console.log({id}); 
     return (
         <div>
-            <ItemDetail products= {products}  />
+            <ItemDetail products = {products}  />
         </div>
     )
 }

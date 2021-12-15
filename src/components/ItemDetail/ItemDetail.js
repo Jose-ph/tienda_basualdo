@@ -30,7 +30,7 @@ function ItemDetail({products}) {
     const handleAddCart = (numberofItems) =>{
 
         setBuy(true)
-        setProduct({...products,quantity: qty})
+        setProduct({...products, quantity: qty})
         
 
     }
@@ -39,6 +39,10 @@ function ItemDetail({products}) {
 
         history.push('/')
     } 
+    const goCart = () =>{
+
+      history.push('/cart')
+  } 
     
   /*   const handleCart = () =>{ //Esta función ahora es para comprar y no navegar
         history.push('/cart')
@@ -106,6 +110,7 @@ function ItemDetail({products}) {
                 <>
             <button onClick={handlePurchase} className="btn btn-success mt-2" >Comprar </button> 
             <button onClick={goBack} className="btn btn-success mt-2" >Volver</button>
+            <button onClick={goCart} className="btn btn-success mt-2" >Carrito</button>
 
           </> 
             )

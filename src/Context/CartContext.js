@@ -7,6 +7,11 @@ const CartContextProvider = ({children}) => {
 
     const [cart, setCart] = useState([]);
 
+    const totalPurchase = () =>{
+
+        return cart.reduce ((counter, product)=> Number(counter) + Number( product.price) * Number( product.quantity) , 0)
+    }
+
     const addItem = (item) => {
 
         console.log(item)
@@ -39,6 +44,7 @@ const CartContextProvider = ({children}) => {
             removeItem,
             isInCart,
             clearCart,
+            totalPurchase,
 
         }}>
             {children}

@@ -133,9 +133,9 @@ function ItemDetail({products}) {
           :
             (
                 <>
-            <button onClick={handlePurchase} className="btn btn-success mt-2" > Comprar </button> 
+            {/* <button onClick={handlePurchase} className="btn btn-success mt-2" > Comprar </button>  */}
             <button onClick={goBack} className="btn btn-success mt-2" >Volver</button>
-            <button onClick={goCart} className="btn btn-success mt-2" >Carrito</button>
+            <button onClick={goCart} className="btn btn-success mt-2" >Terminar compra</button>
 
           </> 
             )

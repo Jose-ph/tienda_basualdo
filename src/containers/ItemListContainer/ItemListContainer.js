@@ -4,7 +4,11 @@ import { useParams } from 'react-router-dom';
 
 import ItemList from '../../components/ItemList/ItemList'
 import Loader from '../../components/Loader/Loader';
+
 import { getPosts, getPostsByCategory,} from '../../Services/getItem'
+
+import {collection, getDocs, query, where} from "firebase/firestore/lite"
+import {dataBase} from "../../firebase/config"
 
 
 
@@ -18,7 +22,8 @@ function ItemListContainer({greeting}) {
 
     useEffect(() => {
 
-        if(categoryId === undefined){
+        //Estos datos vienen de la API
+       /*  if(categoryId === undefined){
             getPosts()
             .then(data => setProducts(data))
             
@@ -29,9 +34,32 @@ function ItemListContainer({greeting}) {
            .then((data) => setProducts(data))
 
         }
-           
-        
-        
+            */
+
+
+        //Esto viene de firebase
+
+
+        //1 armado de referencia
+
+        const productRef = collection(dataBase,"products");
+
+        const queryFilter = categoryId ? query(productRef, where("category","==", categoryId)) :productRef
+
+        //2 Petición a la referencia
+
+        getDocs(queryFilter)
+            .then((response) =>{
+
+                const items = response.docs.map((doc) => ({id:doc.id, ...doc.data()}) )
+                console.log(items)
+                setProducts(items)
+            })
+
+            .finally(()=>{
+
+                //Aca usar loading
+            })
         
       
     }, [categoryId])

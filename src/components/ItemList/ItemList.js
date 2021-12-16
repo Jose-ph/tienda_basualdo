@@ -10,7 +10,7 @@ function ItemList({products}) {
 
             {products.map(productsElement => {
 
-                return  <Item products = {productsElement} key={productsElement.id.toString()} /> 
+                return  <Item products = {productsElement}  key={productsElement.id.toString()}  /> 
             } )}
 
            

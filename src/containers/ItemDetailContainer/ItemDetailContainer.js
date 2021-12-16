@@ -3,6 +3,11 @@ import { useParams } from 'react-router-dom';
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import { getPost } from '../../Services/getItem';
 
+import {dataBase} from "../../firebase/config";
+import {doc, getDoc} from "firebase/firestore/lite"
+
+
+
 
 function ItemDetailContainer() {
 
@@ -14,14 +19,37 @@ function ItemDetailContainer() {
     
     useEffect(() => {
 
-        
-        getPost(id)
+        //Estos datos venian de la API
+       /*  getPost(id)
         
         .then(data => setProducts(data))
-    
+     */
+        //Lo que sigue viene de firebase
+
+        //1 referencia al documento de firebase
+
+        const documentRef = doc(dataBase,"products", id)
+
+        // 2 Peticion a la referencia
+
+        getDoc(documentRef)
+        .then((doc) => {
         
-        
-      
+            const item = {
+
+                id: doc.id, ...doc.data()
+
+            }
+            
+            console.log(item)
+            setProducts(item)
+        })
+
+
+        .finally(()=>{
+
+            //usar loader
+        })
     }, [id])
 
 

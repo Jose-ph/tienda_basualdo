@@ -39,7 +39,7 @@ function CartView() {
 
                 
                 <button className='btn btn-danger' onClick={()=>{clearCart()}} >Borrar carrito</button>
-                <button className='btn btn-success' onClick={()=>console.log("finalizar compra")} >Finalizar compra</button>
+                <button className='btn btn-success'  onClick={()=> push("/checkout")} >Finalizar compra</button>
                 
                 </>
             

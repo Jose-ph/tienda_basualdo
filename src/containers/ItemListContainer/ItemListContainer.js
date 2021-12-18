@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import ItemList from '../../components/ItemList/ItemList'
 import Loader from '../../components/Loader/Loader';
 
-import { getPosts, getPostsByCategory,} from '../../Services/getItem'
+//import { getPosts, getPostsByCategory,} from '../../Services/getItem'
 
 import {collection, getDocs, query, where} from "firebase/firestore/lite"
 import {dataBase} from "../../firebase/config"

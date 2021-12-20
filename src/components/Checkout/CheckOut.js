@@ -1,4 +1,4 @@
-import { collection, addDoc } from 'firebase/firestore/lite'
+import { collection, addDoc, Timestamp, doc, updateDoc, getDoc, writeBatch, getDocs, query, where, documentId} from 'firebase/firestore/lite'
 import React, { useContext,useState } from 'react'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import {CartContext} from "../../Context/CartContext"
@@ -32,6 +32,7 @@ function CheckOut() {
             buyer: values, 
             items: cart,
             total: totalPurchase(),
+            date: Timestamp.fromDate(new Date() )
             
         }
     
@@ -41,9 +42,64 @@ function CheckOut() {
 
         console.log(order)
 
+        const batch = writeBatch(dataBase)
+
         const ordersRef = collection(dataBase, "orders")
 
-        setLoading(true)
+        //actualizar documento en base de datos
+
+        const productsRef = collection(dataBase, "products")
+
+        const q = query(productsRef, where(documentId(), 'in', cart.map(el => el.id)))
+
+
+        //Esto es una serie de cambios en conjunto en vez de a uno.
+
+        const oufOfStock =[]
+        getDocs(q)
+        .then((resp) =>{
+
+            resp.docs.forEach(doc => {
+
+                const item = cart.find((prod)=> prod.id === doc.id)
+                if(doc.data().stock>= item.quantity){
+                    batch.update(doc.ref, {
+                        stock: doc.data().stock - item.quantity
+                    })
+                   
+                }
+                else { oufOfStock.push(item)}
+                
+            });
+
+            if(oufOfStock.length === 0){
+
+                setLoading(true)
+        addDoc(ordersRef, order)
+
+        .then((resp) =>{
+
+            console.log(resp.id)
+            batch.commit()
+            setOrderId(resp.id)
+            clearCart()
+
+        })
+        .finally(()=>{
+            setLoading(false)
+        })
+
+               
+
+            }
+            else {alert("Productos sin stock en el carrito!!")}
+            //indicar cual falta y dirigir al carrito.
+            //mostrar mensaje de error
+           
+        })
+        
+        
+       /* setLoading(true)
         addDoc(ordersRef, order)
 
         .then((resp) =>{
@@ -56,7 +112,10 @@ function CheckOut() {
         .finally(()=>{
             setLoading(false)
         })
+ */
 
+
+    
 
 
 
@@ -176,3 +235,27 @@ function CheckOut() {
 }
 
 export default CheckOut
+
+
+
+    //opción uno para cambiar stock.
+     /*    cart.forEach(item => {
+            const docRef = doc(productsRef, item.id)
+
+            getDoc(docRef)
+            .then(doc =>{
+
+                if(doc.data().stock >= item.quantity){
+
+                    updateDoc(docRef,{
+                        stock: doc.data().stock - item.quantity
+                    })
+
+                }
+
+                else{ alert("Out of STOCK")}
+               
+            })
+            
+        }); */
+ 

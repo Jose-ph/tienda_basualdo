@@ -11,6 +11,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CartContextProvider from "./Context/CartContext";
 import CartView from "./components/CartView/CartView";
 import CheckOut from "./components/Checkout/CheckOut";
+import UserOnly from "./components/UserOnly/UserOnly";
+import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 
 
 function App() {
@@ -43,6 +45,12 @@ function App() {
             </Route>
             <Route exact path="/checkout">
               <CheckOut/>
+            </Route>
+            <Route exact path="/userOnly" element={<RestrictedRoute>
+
+              <UserOnly/>
+            </RestrictedRoute>}  >
+              
             </Route>
           </Switch>
         </div>

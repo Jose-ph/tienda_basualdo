@@ -1,21 +1,15 @@
 
-import { useHistory } from 'react-router';
+
 import { NavLink } from 'react-router-dom';
 import logoTienda from '../../logo3.png'
 import Cartwidget from '../Cartwidget/Cartwidget';
+import { useContext } from "react";
+import { UserContext } from "../../Context/UserContext";
 
 
 function Navbar() {
 
-  let history= useHistory();
-
-
-
-
-
-
-
-
+  const {logged, logout, user} =useContext(UserContext)
 
 
   return (
@@ -36,14 +30,28 @@ function Navbar() {
         <li className="nav-item"> <NavLink className="nav-link" to={'/category/jewelery'}  >Joyas</NavLink></li>
         <li className="nav-item"> <NavLink className="nav-link" to={"/category/men's clothing"}  >Ropa Hombres </NavLink></li>
         <li className="nav-item"> <NavLink className="nav-link" to={"/category/women's clothing"}  >Ropa Mujeres </NavLink></li>
+        <li className="nav-item"> <NavLink className="nav-link" to={"/userOnly"}  > UserOnly </NavLink></li>
       </ul>
 
       
       <Cartwidget/>
         
+        {logged
+          ?
+          <>
+          <span> Hola {user.email}</span>
+
+          <button onClick={logout} className="btn btn-outline-success" type="submit">LogOut</button>
+          </>
+
+          :
+          <>
+          <button className="btn btn-outline-success" type="submit">Log-in</button>
+          <button className="btn btn-outline-success" type="submit">Sign Up</button>
+          </>
+        }
         
-        <button className="btn btn-outline-success" type="submit">Log-in</button>
-     
+      
    
     </div>
   </div>

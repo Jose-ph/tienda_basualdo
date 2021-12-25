@@ -64,7 +64,7 @@ function Navbar() {
          :
 
          <>
-         <h4> No Logueado</h4>
+         
          <button className="btn btn-success" type="button" onClick={goSignUp} >Registrase</button>
          <button className="btn btn-success" type="button" onClick={goLogIn} >Iniciar sesión</button>
          </>

@@ -9,8 +9,9 @@ export const UserContext = createContext();
 
 const UserContextProvider = ({children}) => {
 
-   const {user, setUser} = useState();
-   const {logged, setLogged} = useState(false)
+   const [user, setUser] = useState();
+
+   const [logged, setLogged] = useState(false)
 
    const provider = new GoogleAuthProvider();
 

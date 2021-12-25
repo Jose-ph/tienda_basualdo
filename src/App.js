@@ -9,15 +9,18 @@ import ItemDetailContainer from "./containers/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //import Cart from "./components/Cart/Cart";
 import CartContextProvider from "./Context/CartContext";
+
+
 import CartView from "./components/CartView/CartView";
 import CheckOut from "./components/Checkout/CheckOut";
 import UserOnly from "./components/UserOnly/UserOnly";
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
+import UserContextProvider from "./Context/UserContext";
 
 
 function App() {
   return (
-
+    <UserContextProvider>
     <CartContextProvider>
 
       <Router>
@@ -56,6 +59,7 @@ function App() {
         </div>
       </Router>
     </CartContextProvider>
+    </UserContextProvider>
   );
 }
 

@@ -1,3 +1,6 @@
+
+
+import React from "react";
 import Navbar from "./components/Navbar/NavBar";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -14,13 +17,20 @@ import CartContextProvider from "./Context/CartContext";
 import CartView from "./components/CartView/CartView";
 import CheckOut from "./components/Checkout/CheckOut";
 import UserOnly from "./components/UserOnly/UserOnly";
+import {  UserContextProvider } from "./Context/UserContext";
+import LogIn from "./components/LogIn/LogIn";
+import SignUp from "./components/SignUp/SignUp";
+
+
 
 
 
 
 function App() {
+
+  
   return (
-   
+     <UserContextProvider>
     <CartContextProvider>
 
       <Router>
@@ -52,12 +62,28 @@ function App() {
             <Route exact path="/userOnly">
               <UserOnly/>
             </Route>
+            <Route exact path="/login" component={LogIn} />
+            <Route exact path="/signup" component={SignUp}/>
           </Switch>
         </div>
       </Router>
     </CartContextProvider>
+    </UserContextProvider>
+     
+
+   
     
-  );
-}
+    
+
+  ); 
+
+
+
+  
+    
+    
+
+
+ }
 
 export default App;

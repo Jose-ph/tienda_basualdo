@@ -1,6 +1,8 @@
 
 
-import { NavLink } from 'react-router-dom';
+import React, { useContext } from "react";
+import { NavLink, useHistory } from 'react-router-dom';
+import { UserContext } from '../../Context/UserContext';
 import logoTienda from '../../logo3.png'
 import Cartwidget from '../Cartwidget/Cartwidget';
 
@@ -9,8 +11,23 @@ import Cartwidget from '../Cartwidget/Cartwidget';
 
 function Navbar() {
 
-  
 
+  const { logged, logout, user } = useContext(UserContext);
+  
+  const history = useHistory()
+
+  const goLogIn = () =>{
+
+    history.push('/login')
+  }
+
+  const goSignUp = () =>{
+
+    history.push("/signup")
+  }
+
+
+  
 
   return (
     <div className="NavBar">
@@ -36,7 +53,22 @@ function Navbar() {
       
       <Cartwidget/>
         
-       
+       {logged 
+          ?
+          <>
+          <span> Hola ! {user.email} </span>
+         <button className="btn btn-success" type="button" onClick={logout} > Cerrar sesión</button>
+      
+         </>
+
+         :
+
+         <>
+         <h4> No Logueado</h4>
+         <button className="btn btn-success" type="button" onClick={goSignUp} >Registrase</button>
+         <button className="btn btn-success" type="button" onClick={goLogIn} >Iniciar sesión</button>
+         </>
+      }
         
       
       </div>

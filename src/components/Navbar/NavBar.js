@@ -3,13 +3,13 @@
 import { NavLink } from 'react-router-dom';
 import logoTienda from '../../logo3.png'
 import Cartwidget from '../Cartwidget/Cartwidget';
-import { useContext } from "react";
-import { UserContext } from "../../Context/UserContext";
+
+
 
 
 function Navbar() {
 
-  const {logged, logout, user} =useContext(UserContext)
+  
 
 
   return (
@@ -36,33 +36,20 @@ function Navbar() {
       
       <Cartwidget/>
         
-        {logged
-          ?
-          <>
-          <span> Hola {user.email}</span>
-
-          <button onClick={logout} className="btn btn-outline-success" type="submit">LogOut</button>
-          </>
-
-          :
-          <>
-          <button className="btn btn-outline-success" type="submit">Log-in</button>
-          <button className="btn btn-outline-success" type="submit">Sign Up</button>
-          </>
-        }
+       
         
       
-   
-    </div>
-  </div>
-</nav>
-
-    <h3>Del campe</h3> {/* Quitar esto */}
+      </div>
+      </div>
+      </nav>
 
     
- 
+
+    
+    
 
     </div>
+    
   );
 }
 

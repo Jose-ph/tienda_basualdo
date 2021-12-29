@@ -24,7 +24,7 @@ const SignUp = () => {
         (<Redirect to={"/"} />)
         : (
     
-          <form className="form" onSubmit={handleSignup}>
+          <form className="form" onSubmit={handleSignup} style={{'background-color':'white'}}>
             <h5 className="title">Registrarme</h5>
             <span className="form-span">Email</span>
             <input

@@ -65,7 +65,7 @@ function Navbar() {
 
          <>
          
-         <button className="btn btn-success" type="button" onClick={goSignUp} >Registrase</button>
+         <button className="btn btn-primary mx-1" type="button" onClick={goSignUp} >Registrarse</button>
          <button className="btn btn-success" type="button" onClick={goLogIn} >Iniciar sesión</button>
          </>
       }

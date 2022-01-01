@@ -20,15 +20,16 @@ const SignUp = () => {
 
   return (
   <div className="">
+
       {logged ?
         (<Redirect to={"/"} />)
         : (
     
-          <form className="form" onSubmit={handleSignup} style={{'background-color':'white'}}>
+          <form id="prueba-tres" className="form d-flex  flex-column" onSubmit={handleSignup} style={{'background-color':'#f8e12d','width':'500px'}}>
             <h5 className="title">Registrarme</h5>
             <span className="form-span">Email</span>
             <input
-              type="text"
+              type="email"
               className="form-input"
               id="email-signup"
               name="email-singup"

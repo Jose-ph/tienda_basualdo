@@ -27,6 +27,8 @@ function CartView() {
 
                 <>
 
+                <div id='carrito'>  
+
                 <h3> Su compra:</h3>
 
                 {
@@ -38,9 +40,10 @@ function CartView() {
                 <h2>Total: $ {totalPurchase()} </h2>
 
                 
-                <button className='btn btn-danger' onClick={()=>{clearCart()}} >Borrar carrito</button>
+                <button className='btn btn-danger mx-3' onClick={()=>{clearCart()}} >Borrar carrito</button>
                 <button className='btn btn-success'  onClick={()=> push("/checkout")} >Finalizar compra</button>
                 
+                </div>
                 </>
             
         

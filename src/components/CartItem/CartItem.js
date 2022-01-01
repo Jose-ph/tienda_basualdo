@@ -18,7 +18,7 @@ function CartItem(product) {
             <p> Precio: {product.product.price}  </p>
             <p> Cantidad:{product.product.quantity} </p>
 
-           <button className='btn btn-danger' onClick={() => removeItem(product.product.id)} > borrar Item</button>  
+           <button className='btn btn-danger' onClick={() => removeItem(product.product.id)} > Borrar Item</button>  
 
             
         </div>

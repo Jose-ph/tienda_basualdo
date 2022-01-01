@@ -15,7 +15,7 @@ const LogIn = () => {
       {logged ? (
         <Redirect to={"/"} />
       ) : (
-        <form className="form">
+        <form id="prueba-cuatro" className="form">
           <h5 className="title">Iniciar Sesión</h5>
           <span className="form-span">Email</span>
           <input

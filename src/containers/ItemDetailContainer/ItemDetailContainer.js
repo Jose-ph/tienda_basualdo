@@ -5,6 +5,7 @@ import { getPost } from '../../Services/getItem';
 
 import {dataBase} from "../../firebase/config";
 import {doc, getDoc} from "firebase/firestore/lite"
+import Loader from '../../components/Loader/Loader';
 
 
 
@@ -55,7 +56,14 @@ function ItemDetailContainer() {
 
     return (
         <div>
-            <ItemDetail products = {products}  />
+
+
+            {products.length === 0 ? <Loader/> : <ItemDetail products = {products}  /> }
+
+
+
+
+           
         </div>
     )
 }

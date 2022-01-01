@@ -1,5 +1,14 @@
-*{
-  background-color:darksalmon;
+
+
+#prueba div {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
 }
 
+#prueba-dos img{
 
+    width: 350px !important;
+    height: 150px;
+
+}

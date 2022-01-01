@@ -104,15 +104,15 @@ function ItemDetail({products}) {
     return (
         <div>
         
-        <div className="d-flex justify-content-center"  >
+        <div className="d-flex justify-content-center" id='prueba-dos' >
 
         <div className ="card " style={{'width': '50rem', 'backgroundColor':' #20b9ee '}} >
 
         <div className="card-body d-flex flex-column justify-content-around" >
         <img className="align-self-center" src={products.image} alt="logo prueba"  style={ {'width': '100px'}}                  /> 
         <h5 className="card-title align-self-center" > {products.title} </h5>
-        <p className="card-text align-self-center" > {products.price} </p>
-        <p className="card-text align-self-center" > {products.description} </p>
+        <p className="card-text align-self-center" > Precio :$ {products.price} </p>
+        <p className="card-text align-self-center" > Descripción: {products.description} </p>
 
        
        {/*  <ItemCount stock= {stock} initial = {initial} onAdd = {handleChange}  />

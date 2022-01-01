@@ -20,7 +20,7 @@ function Item({products}) {
         <img src={products.image} alt="logo prueba"  style={ {'width': '200px','height':'200px'}}                  /> 
         <h5 className="card-title" > {products.title} </h5>
         <p className="card-text" > {products.description} </p>
-        <button onClick = {seeDetails} className="btn btn-success" >See details</button>
+        <button onClick = {seeDetails} className="btn btn-success" >Ver detalle</button>
 
         
         </div>

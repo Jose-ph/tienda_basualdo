@@ -6,7 +6,7 @@ function ItemList({products}) {
   
 
     return (
-        <div className= 'd-flex flex-wrap'>
+        <div className= 'd-flex flex-wrap' id='prueba'>
 
             {products.map(productsElement => {
 

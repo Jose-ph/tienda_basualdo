@@ -4,6 +4,7 @@ import React, { useContext } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 import logoTienda from "../../logo3.png";
+
 import Cartwidget from "../Cartwidget/Cartwidget";
 
 function Navbar() {

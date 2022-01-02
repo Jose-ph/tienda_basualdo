@@ -20,6 +20,7 @@ import UserOnly from "./components/UserOnly/UserOnly";
 import {  UserContextProvider } from "./Context/UserContext";
 import LogIn from "./components/LogIn/LogIn";
 import SignUp from "./components/SignUp/SignUp";
+import RestrictedRoute from "./components/RestrictedRoute/RestrictedRouted";
 
 
 
@@ -55,7 +56,28 @@ function App() {
 
             <Route exact path="/cart">
               <CartView/>
-            </Route>
+            </Route> 
+
+      {/*  <Route exact path="/userOnly" > 
+       <RestrictedRoute>
+
+          <UserOnly/>
+        </RestrictedRoute>  
+
+          </Route>  */}
+
+          <Route exact path="/cart" > 
+       <RestrictedRoute>
+
+          <CartView/>
+        </RestrictedRoute>  
+
+          </Route> 
+              
+            
+
+
+
             <Route exact path="/checkout">
               <CheckOut/>
             </Route>

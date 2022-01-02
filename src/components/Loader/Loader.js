@@ -6,7 +6,7 @@ function Loader() {
         <div>
            {/*  <h1>CARGANDO...</h1> */}
 
-           <div class="loader">Loading...</div>
+           <div className="loader">Loading...</div>
             
         </div>
 

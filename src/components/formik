@@ -1,0 +1,95 @@
+ <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+            {(formik) => {
+              <form onSubmit={formik.handleSubmit}>
+                <input
+                  name="nombre"
+                  onChange={formik.handleChange}
+                  value={formik.values.nombre}
+                  className="form-control container w-50"
+                  type="text"
+                  placeholder="Ingresa tu nombre"
+                />
+                <input
+                  name="email"
+                  onChange={formik.handleChange}
+                  value={formik.values.email}
+                  className="form-control container w-50"
+                  type="email"
+                  placeholder="ejemplo@gmail.com"
+                />
+
+                <input
+                  name="cel"
+                  onChange={formik.handleChange}
+                  value={formik.values.cel}
+                  className="form-control container w-50"
+                  type="tel"
+                  placeholder="Teléfono"
+                />
+
+                <button type="submit" className="btn btn-warning">
+                  
+                  Enviar
+                </button>
+              </form>;
+            }}
+          </Formik>
+
+
+
+
+
+
+
+
+
+//////FORM VIEJO
+
+
+
+
+
+           <form onSubmit={handleSubmit} > 
+
+    <input   
+    name='nombre'
+    onChange={handleValues}
+    value= {values.nombre}
+    className='form-control container w-50'
+    type="text"
+    placeholder='Ingresa tu nombre'
+
+
+        />
+    <input   
+    name='email'
+    onChange={handleValues}
+    value= {values.email}
+    className='form-control container w-50'
+    type="email"
+    placeholder='ejemplo@gmail.com'
+
+
+        />
+
+        <input   
+
+    name='cel'
+    onChange={handleValues}
+    value= {values.cel}
+    className='form-control container w-50'
+    type="tel"
+    placeholder='Teléfono'
+
+
+    />
+
+
+
+
+
+
+
+<button type='submit' className="btn btn-warning" > Enviar</button>
+
+</form> 

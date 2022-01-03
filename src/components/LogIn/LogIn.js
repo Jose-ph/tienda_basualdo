@@ -27,15 +27,11 @@ const LogIn = () => {
           />
 
           {error === "auth/invalid-email" && (
-            <p className="form-message form-message-error">Mail inválido</p>
+            <p className="alert alert-danger">Mail inválido</p>
           )}
-          {error === "auth/email-already-in-use" && (
-            <p className="form-message form-message-error">
-              Mail ya registrado
-            </p>
-          )}
+        
           {error === "auth/user-not-found" && (
-            <p className="form-message form-message-error">
+            <p className="alert alert-danger">
               Usuario no encontrado
             </p>
           )}

@@ -36,12 +36,12 @@ const SignUp = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             {error === "auth/email-already-in-use" && (
-              <p className="form-message form-message-error">
+              <p className="alert alert-danger">
                 Usuario ya registrado
               </p>
             )}
             {error === "auth/invalid-email" && (
-              <p className="form-message form-message-error">
+              <p className="alert alert-danger">
                 Ingrese un email válido
               </p>
             )}
@@ -54,14 +54,14 @@ const SignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             {error === "auth/weak-password" && (
-              <p className="form-message form-message-error">
+              <p className="alert alert-danger">
                 La contraseña debe contener más de 6 caracteres
               </p>
             )}
             <input
               type="submit"
               value="Enviar"
-              className="btn-login btn-container-violet"
+              className="btn btn-primary my-2"
             />
           </form>
         )}

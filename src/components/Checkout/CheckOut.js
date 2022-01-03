@@ -17,6 +17,7 @@ import Loader from "../Loader/Loader";
 
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { UserContext } from "../../Context/UserContext";
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -49,6 +50,8 @@ function Checkout() {
   const [orderId, setOrderId] = useState(null);
 
   const [loading, setLoading] = useState(false);
+
+  const {logged} = useContext(UserContext);
 
 
 
@@ -135,7 +138,7 @@ function Checkout() {
     );
   }
 
-  if (!orderId) {
+  if (!orderId && logged && cart.length > 0 ) {
     return (
       <div className="container w-50">
         <h2>Checkout</h2>
@@ -195,7 +198,24 @@ function Checkout() {
     );
   }
 
-  
+  if(!logged){
+    return(
+
+      <h2>Debes estar logueado</h2>
+    )
+  }
+
+  if(logged && cart.length === 0){
+
+    return( 
+
+      <h2>Debes agregar productos al carrito para ver el checkout</h2>
+      
+    )
+
+   
+  }
+ 
 }
 
 export default Checkout;

@@ -4,7 +4,7 @@ import { useContext } from "react/cjs/react.development";
 import { CartContext } from "../../Context/CartContext";
 
 function Cartwidget() {
-  const { cart, totalQty } = useContext(CartContext);
+  const [ cart, totalQty ] = useContext(CartContext);
 
   let history = useHistory();
 

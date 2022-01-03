@@ -1,5 +1,3 @@
-
-
 import React, { useContext } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
@@ -49,40 +47,28 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                
                 <NavLink className="nav-link" to={"/"}>
                   Inicio
                 </NavLink>
               </li>
               <li className="nav-item">
-                
                 <NavLink className="nav-link" to={"/category/electronics"}>
                   Electrónica
                 </NavLink>
               </li>
               <li className="nav-item">
-                
                 <NavLink className="nav-link" to={"/category/jewelery"}>
                   Joyas
                 </NavLink>
               </li>
               <li className="nav-item">
-                
                 <NavLink className="nav-link" to={"/category/men's clothing"}>
                   Ropa Hombres
                 </NavLink>
               </li>
               <li className="nav-item">
-                
                 <NavLink className="nav-link" to={"/category/women's clothing"}>
                   Ropa Mujeres
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                
-                <NavLink className="nav-link" to={"/userOnly"}>
-                  
-                  UserOnly
                 </NavLink>
               </li>
             </ul>

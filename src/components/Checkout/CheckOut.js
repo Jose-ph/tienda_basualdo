@@ -2,7 +2,6 @@ import {
   collection,
   addDoc,
   Timestamp,
-  
   writeBatch,
   getDocs,
   query,
@@ -16,11 +15,11 @@ import { CartContext } from "../../Context/CartContext";
 import { dataBase } from "../../firebase/config";
 import Loader from "../Loader/Loader";
 
-import { Formik } from 'formik';
-import * as Yup from 'yup';
+import { Formik } from "formik";
+import * as Yup from "yup";
 
-
-const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const initialValues = {
   nombre: "",
@@ -28,48 +27,32 @@ const initialValues = {
   tel: "",
 };
 
-const endPurchaseSchema = Yup.object().shape( {
-
+const endPurchaseSchema = Yup.object().shape({
   nombre: Yup.string()
-  .required('Este campo es obligatorio')
-  .min(4,'El nombre es muy corto')
-  .max(30, 'El nombre supera el límite de caracteres'),
+    .required("Este campo es obligatorio")
+    .min(4, "El nombre es muy corto")
+    .max(30, "El nombre supera el límite de caracteres"),
   email: Yup.string()
-          .required('El mail es obligatorio, nos comunicamos por este medio!')
-          .email('Email inválido'),
+    .required("El mail es obligatorio, nos comunicamos por este medio!")
+    .email("Email inválido"),
 
-  tel: Yup.string().matches(phoneRegExp,'Número de teléfono sólo pueden ser números')
-            .required('Este campo es obligatorio')
-            .min(8,'El teléfono no es válido')
-            .max(12,'El teléfono tiene demasiados dígitos')
-
-
-
-}  )
-
-
+  tel: Yup.string()
+    .matches(phoneRegExp, "Número de teléfono sólo pueden ser números")
+    .required("Este campo es obligatorio")
+    .min(8, "El teléfono no es válido")
+    .max(12, "El teléfono tiene demasiados dígitos"),
+});
 
 function Checkout() {
-
-
   const { cart, totalPurchase, clearCart } = useContext(CartContext);
 
   const [orderId, setOrderId] = useState(null);
 
   const [loading, setLoading] = useState(false);
 
-   /*   const [values, setValues] = useState({
 
-        nombre: "",
-        email: "",
-        cel: "",
-
-    })
-  */
- 
 
   const handleSubmit = (values) => {
-
     const order = {
       buyer: values,
       items: cart,
@@ -126,204 +109,95 @@ function Checkout() {
       } else {
         alert("Productos sin stock en el carrito!!");
       }
-      //indicar cual falta y dirigir al carrito.
-      //mostrar mensaje de error
+     
     });
 
-    /* setLoading(true)
-        addDoc(ordersRef, order)
-
-        .then((resp) =>{
-
-            console.log(resp.id)
-            setOrderId(resp.id)
-            clearCart()
-
-        })
-        .finally(()=>{
-            setLoading(false)
-        })
- */
+   
   };
 
-/*     const handleValues = (e)=> {
-
-      
-        console.log(e.target.name)
-
-        setValues({
-
-            ...values,
-            [e.target.name]: e.target.value
-
-        })
-
-       
-    } */
- 
+  
 
   if (loading) {
     return <Loader></Loader>;
   }
 
-  if(orderId){
-
-      return (
-          <>
-          <h2>Compra registrada con éxito !</h2>
-          <hr></hr>
-          <p>Tu número de orden es: {orderId} </p>
-          <Link to="/" className="btn btn-warning">
-            {" "}
-            Ir al inicio
-          </Link>
-        </>
-
-      )
+  if (orderId) {
+    return (
+      <>
+        <h2>Compra registrada con éxito !</h2>
+        <hr></hr>
+        <p>Tu número de orden es: {orderId} </p>
+        <Link to="/" className="btn btn-warning">
+          {" "}
+          Ir al inicio
+        </Link>
+      </>
+    );
   }
 
-  if(!orderId){
+  if (!orderId) {
+    return (
+      <div className="container w-50">
+        <h2>Checkout</h2>
 
-      return (
-          
-         <div className="container w-50">
+        <hr />
 
-              <h2>Checkout</h2>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={endPurchaseSchema}
+          onSubmit={handleSubmit}
+        >
+          {(formik) => (
+            <form onSubmit={formik.handleSubmit}>
+              <input
+                name="nombre"
+                onChange={formik.handleChange}
+                value={formik.values.nombre}
+                className="form-control my-2"
+                type="text"
+                placeholder="Nombre"
+              />
+              {formik.errors.nombre && (
+                <p className="alert alert-danger">{formik.errors.nombre}</p>
+              )}
 
-                  <hr/>
+              <input
+                name="email"
+                onChange={formik.handleChange}
+                value={formik.values.email}
+                className="form-control my-2"
+                type="email"
+                placeholder="Email"
+              />
+              {formik.errors.email && (
+                <p className="alert alert-danger">{formik.errors.email}</p>
+              )}
 
-                  <Formik
-                      initialValues={initialValues}
-                      validationSchema={endPurchaseSchema}
-                      onSubmit={handleSubmit}
-                  >
-                      {(formik) => (
-                          <form onSubmit={formik.handleSubmit}>
-                              <input
-                                  name="nombre"
-                                  onChange={formik.handleChange}
-                                  value={formik.values.nombre}
-                                  className='form-control my-2'
-                                  type="text"
-                                  placeholder="Nombre"
-                              />
-                              {formik.errors.nombre && <p className='alert alert-danger'>{formik.errors.nombre}</p>}
+              <input
+                name="tel"
+                onChange={formik.handleChange}
+                value={formik.values.tel}
+                className="form-control my-2"
+                type="text"
+                placeholder="Teléfono"
+              />
+              {formik.errors.tel && (
+                <p className="alert alert-danger">{formik.errors.tel}</p>
+              )}
 
-                              <input
-                                  name='email'
-                                  onChange={formik.handleChange}
-                                  value={formik.values.email}
-                                  className='form-control my-2'
-                                  type="email"
-                                  placeholder="Email"
-                              />
-                              {formik.errors.email && <p className='alert alert-danger'>{formik.errors.email}</p>}
-
-                              <input
-                                  name='tel'
-                                  onChange={formik.handleChange}
-                                  value={formik.values.tel}
-                                  className='form-control my-2'
-                                  type="text"
-                                  placeholder="Teléfono"
-                              />
-                              {formik.errors.tel && <p className='alert alert-danger'>{formik.errors.tel}</p>}
-
-                              <button type='submit' className='btn btn-success'>Enviar</button>
-                          </form>
-                      )}
-                  </Formik>
-
-
-
-
-         </div>
-
-      )
+              <button type="submit" className="btn btn-success">
+                Enviar
+              </button>
+            </form>
+          )}
+        </Formik>
+      </div>
+    );
   }
 
-
-
- /*  return (
-    <div>
-      {orderId ? (
-        <>
-          <h2>Compra registrada con éxito !</h2>
-          <hr></hr>
-          <p>Tu número de orden es: {orderId} </p>
-          <Link to="/" className="btn btn-warning">
-            {" "}
-            Ir al inicio
-          </Link>
-        </>
-      ) : (
-        <>
-          <h2> Vista de Check--out</h2>
-
-          <hr /> 
-          
-          <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-          {(formik) => {
-              <form onSubmit={formik.handleSubmit}>
-                <input
-                  name="nombre"
-                  onChange={formik.handleChange}
-                  value={formik.values.nombre}
-                  className="form-control container w-50"
-                  type="text"
-                  placeholder="Ingresa tu nombre"
-                />
-                <input
-                  name="email"
-                  onChange={formik.handleChange}
-                  value={formik.values.email}
-                  className="form-control container w-50"
-                  type="email"
-                  placeholder="ejemplo@gmail.com"
-                />
-
-                <input
-                  name="cel"
-                  onChange={formik.handleChange}
-                  value={formik.values.cel}
-                  className="form-control container w-50"
-                  type="tel"
-                  placeholder="Teléfono"
-                />
-
-                <button type="submit" className="btn btn-warning">
-                  
-                  Enviar
-                </button>
-              </form>;
-            }}
-          </Formik>
-           
-        </>
-       )}
-    </div>
-  ); */
-} 
+  
+}
 
 export default Checkout;
 
-//opción uno para cambiar stock.
-/*    cart.forEach(item => {
-            const docRef = doc(productsRef, item.id)
 
-            getDoc(docRef)
-            .then(doc =>{
-
-                if(doc.data().stock >= item.quantity){
-
-                    updateDoc(docRef,{
-                        stock: doc.data().stock - item.quantity
-                    })
-
-                }
-
-                else{ alert("Out of STOCK")}
-               
-            })
-            
-        }); */

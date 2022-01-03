@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { Redirect } from "react-router";
 import { UserContext } from "../../Context/UserContext";
 
-
 const LogIn = () => {
   const { login, logged, error, googleAuth } = useContext(UserContext);
 
@@ -11,7 +10,6 @@ const LogIn = () => {
 
   return (
     <div className="container">
-
       {logged ? (
         <Redirect to={"/"} />
       ) : (
@@ -29,11 +27,9 @@ const LogIn = () => {
           {error === "auth/invalid-email" && (
             <p className="alert alert-danger">Mail inválido</p>
           )}
-        
+
           {error === "auth/user-not-found" && (
-            <p className="alert alert-danger">
-              Usuario no encontrado
-            </p>
+            <p className="alert alert-danger">Usuario no encontrado</p>
           )}
 
           <span className="form-span">Contraseña</span>
@@ -74,7 +70,7 @@ const LogIn = () => {
           >
             Iniciar Sesión
           </button>
-        
+
           <span className="form-span form-span-google">
             O iniciar sesión con:
           </span>

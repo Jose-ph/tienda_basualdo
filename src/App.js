@@ -42,9 +42,9 @@ function App() {
                 <ItemDetailContainer />
               </Route>
 
-              <Route exact path="/cart">
+            {/*   <Route exact path="/cart">
                 <CartView />
-              </Route>
+              </Route> */}
 
               <Route exact path="/cart">
                 <RestrictedRoute>

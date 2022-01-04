@@ -1,7 +1,7 @@
-import React from "react";
+import React,{useContext}from "react";
 import { useHistory } from "react-router-dom";
-import { useContext } from "react/cjs/react.development";
-import { CartContext } from "../../Context/CartContext";
+//import { useContext } from "react/cjs/react.development";
+import  {CartContext } from "../../Context/CartContext";
 import CartItem from "../CartItem/CartItem";
 
 import { UserContext } from "../../Context/UserContext";

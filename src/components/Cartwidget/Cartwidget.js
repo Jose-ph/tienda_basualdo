@@ -1,10 +1,10 @@
-import React from "react";
+import React,{useContext}from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { useContext } from "react/cjs/react.development";
-import { CartContext } from "../../Context/CartContext";
+//import { useContext } from "react/cjs/react.development";
+import  {CartContext } from "../../Context/CartContext";
 
 function Cartwidget() {
-  const [ cart, totalQty ] = useContext(CartContext);
+  const {cart, totalQty } = useContext(CartContext);
 
   let history = useHistory();
 
